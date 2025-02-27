@@ -29,11 +29,19 @@ int main() {
     } while (casasRainha <= movimentosRainha);
     
 // Nível Aventureiro - Movimentação do Cavalo
-    int casasCavalo = 1;
-    while (casasCavalo <= movimentosCavaloHorizontal) {
-        printf("Casa %d: Esquerda\n", casasCavalo);
-        casasCavalo++;
-    }
+    printf("\nMovimento do Cavalo:\n");
+    
+// Loop 1  para as 2 casas para baixo (FOR)
+for (int i = 1; i <= movimentosCavaloVertical; i++) {
+    printf("Casa %d: Baixo\n", i);
+}
+
+// Loop 2 para 1 casa para a esquerda (WHILE)
+int casasCavalo = 1;
+while (casasCavalo <= movimentosCavaloHorizontal) {
+    printf("Casa %d: Esquerda\n", casasCavalo);
+    casasCavalo++;
+}
     return 0;
 }
 
