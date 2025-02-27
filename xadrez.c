@@ -33,13 +33,13 @@ int main() {
     
 // Loop 1  para as 2 casas para baixo (FOR)
 for (int i = 1; i <= movimentosCavaloVertical; i++) {
-    printf("Casa %d: Baixo\n", i);
+    printf("Casa %d: Baixo\n\n", i);
 }
 
 // Loop 2 para 1 casa para a esquerda (WHILE)
 int casasCavalo = 1;
 while (casasCavalo <= movimentosCavaloHorizontal) {
-    printf("Casa %d: Esquerda\n", casasCavalo);
+    printf("Casa %d: Esquerda\n\n", casasCavalo);
     casasCavalo++;
 }
     return 0;
