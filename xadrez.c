@@ -5,6 +5,8 @@ int main() {
     int movimentosTorre = 5;
     int movimentosBispo = 5;
     int movimentosRainha = 8;
+    int movimentosCavaloVertical = 2; // Duas casas - baixo
+    int movimentosCavaloHorizontal = 1; // Uma casa - esquerda
 
 // Implementação de Movimentação do Bispo
     printf("\nMovimento do Bispo:\n");
@@ -25,13 +27,16 @@ int main() {
         printf("Casa %d: Esquerda\n", casasRainha);
         casasRainha++;
     } while (casasRainha <= movimentosRainha);
-
-    return 0;
+    
+// Nível Aventureiro - Movimentação do Cavalo
+    int casasCavalo = 1;
+    while (casasCavalo <= movimentosCavaloHorizontal) {
+        printf("Casa %d: Esquerda\n", casasCavalo);
+        casasCavalo++;
     }
+    return 0;
+}
 
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
@@ -40,3 +45,4 @@ int main() {
 
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
+ 
