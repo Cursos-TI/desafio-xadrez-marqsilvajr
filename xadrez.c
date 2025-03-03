@@ -1,56 +1,69 @@
 #include <stdio.h>
 
+// Função para mover a Torre (direita)
+void moveTorre(int movimentos) {
+    if (movimentos == 0) return; 
+    printf("Casa %d: Direita\n", movimentos);
+    moveTorre(movimentos - 1);
+}
+
+// Função para mover a Rainha (esquerda)
+void moveRainha(int movimentos) {
+    if (movimentos == 0) return; 
+    printf("Casa %d: Esquerda\n", movimentos);
+    moveRainha(movimentos - 1);
+}
+
+// Movimentação Bispo Recursivo + loops aninhados - diagonal para cima e direita
+void moveBispo(int movimentos, int casaAtual) {
+    if (movimentos == 0) return;
+
+    printf("Casa %d: Cima\n", casaAtual);
+    printf("Casa %d: Direita\n", casaAtual);
+    moveBispo(movimentos - 1, casaAtual + 1);
+}
+
+// Movimentação do Cavalo - loops aninhados + continue e break
+void moveCavalo() {
+    printf("Movimento do Cavalo:\n");
+
+    int movimentosVerticais = 2; 
+    int movimentosHorizontais = 1;
+
+    for (int i = 1; i <= movimentosVerticais; i++) { 
+        printf("Casa %d: Cima\n", i);
+    }
+
+    int casasCavalo = 1;
+    while (casasCavalo <= movimentosHorizontais) { 
+        if (casasCavalo == 0) continue; // Evitando movimento inválido
+        printf("Casa %d: Direita\n", casasCavalo);
+        casasCavalo++;
+    }
+}
+
 int main() {
-// Nível Novato - Movimentação das Peças
-    int movimentosTorre = 5;
-    int movimentosBispo = 5;
-    int movimentosRainha = 8;
-    int movimentosCavaloVertical = 2; // Duas casas - baixo
-    int movimentosCavaloHorizontal = 1; // Uma casa - esquerda
-
-// Implementação de Movimentação do Bispo
-    printf("\nMovimento do Bispo:\n");
-    int casasBispo = 1;
-    while (casasBispo <= movimentosBispo) {
-        printf("Casa %d: Cima, Direita\n", casasBispo);
-        casasBispo++;}
-
-// Implementação de Movimentação da Torre
- printf("\nMovimento da Torre:\n");
-    for (int i = 1; i <= movimentosTorre; i++) {
-        printf("Casa %d: Direita\n", i);}
-
-// Implementação de Movimentação da Rainha
-    printf("\nMovimento da Rainha:\n");
-    int casasRainha = 1;
-    do {
-        printf("Casa %d: Esquerda\n", casasRainha);
-        casasRainha++;
-    } while (casasRainha <= movimentosRainha);
+        int movimentosTorre = 5;
+        int movimentosBispo = 5;
+        int movimentosRainha = 8;
     
-// Nível Aventureiro - Movimentação do Cavalo
-    printf("\nMovimento do Cavalo:\n");
+        // Torre
+        printf("Movimento da Torre:\n");
+        moveTorre(movimentosTorre);
+        printf("\n");
     
-// Loop 1  para as 2 casas para baixo (FOR)
-for (int i = 1; i <= movimentosCavaloVertical; i++) {
-    printf("Casa %d: Baixo\n\n", i);
-}
-
-// Loop 2 para 1 casa para a esquerda (WHILE)
-int casasCavalo = 1;
-while (casasCavalo <= movimentosCavaloHorizontal) {
-    printf("Casa %d: Esquerda\n\n", casasCavalo);
-    casasCavalo++;
-}
-    return 0;
-}
-
-    // Um loop pode representar a movimentação horizontal e outro vertical.
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
- 
+        // Bispo
+        printf("Movimento do Bispo:\n");
+        moveBispo(movimentosBispo, 1);
+        printf("\n");
+    
+        // Rainha
+        printf("Movimento da Rainha:\n");
+        moveRainha(movimentosRainha);
+        printf("\n");
+    
+        // Cavalo
+        moveCavalo();
+    
+        return 0;
+    }
